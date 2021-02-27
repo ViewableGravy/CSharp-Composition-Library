@@ -21,3 +21,10 @@ There are three main components to this implementation
   
 ## IComponent
   This is the primary interface for components to implement within an application. It allows a class to be used within the ECS system as a Component and added to Entities. 
+  
+#ToDo
+  Add constructor parameter for IComponent that stores a reference for it's parent (This is always going to be useful and is worth the slight overhead for the times when it is not needed)
+  Handle default parameters from constructors for IComponents in the Factory (It currently fails epicly if you try to leave the default parameter blank (which becomes null and breaks))
+  Work on Event handlers
+  
+  Note: Having a component that allows the interaction between the entity and another component has seemed fruitful, look into this further
