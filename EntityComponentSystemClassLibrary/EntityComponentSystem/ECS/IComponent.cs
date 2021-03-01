@@ -7,5 +7,10 @@ namespace EntityComponentSystemClassLibrary.ECS
         {
             get { return GetType().Name; }
         }
+
+        public Entity OwningEntity
+        {
+            get { return OwningEntity; }
+        }
     }
 }

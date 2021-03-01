@@ -16,7 +16,8 @@ namespace InteractionDemo
             Entity player = new Player(componentFactory);
 
             int ApplyHunger = 0;
-            while(true)
+
+            while (true)
             {
                 Console.WriteLine("Press 1 to take a drink from the watercup, 2 to eat the burger");
                 var key = Console.ReadKey().Key;
@@ -35,7 +36,7 @@ namespace InteractionDemo
                     Console.WriteLine(player.GetComponent<Hunger>().DecreaseSatiation(1));
                     ApplyHunger = 0;
                 }
-                    
+
             }
         }
     }
@@ -89,19 +90,16 @@ namespace InteractionDemo
         }
     }
 
-    public class Hunger : IComponent
+    public class Hunger : Component
     {
         private int hungerLevel;
-        private Entity owningEntity;
 
         public int HungerLevel { get => hungerLevel; set => hungerLevel = value; }
 
-        public Hunger(Entity _owningEntity)
+        public Hunger(Entity _owningEntity) : base(_owningEntity)
         {
             if (!_owningEntity.ContainsComponent<Name>())
                 throw new Exception($"Cannot Be {GetType()} if it doesn't have a name");
-
-            owningEntity = _owningEntity;
             hungerLevel = 5;
         }
 
@@ -135,14 +133,9 @@ namespace InteractionDemo
         }
     }
 
-    public class Eats : IComponent
+    public class Eats : Component
     {
-        private Entity owningEntity;
-
-        public Eats(Entity _owningEntity)
-        {
-            owningEntity = _owningEntity;
-        }
+        public Eats(Entity _owningEntity) : base(_owningEntity) { }
 
         public string Eat(Entity toConsume)
         {
@@ -166,15 +159,13 @@ namespace InteractionDemo
         }
     }
 
-    public class Edible : IComponent
+    public class Edible : Component
     {
-        private Entity owningEntity;
         private int satiationAmount;
-        public Edible(Entity _owningEntity, int _satiationAmount)
+        public Edible(Entity _owningEntity, int _satiationAmount) : base(_owningEntity)
         {
             if (!_owningEntity.ContainsComponent<Name>())
                 throw new Exception($"Cannot Be {GetType()} if it doesn't have a name");
-            owningEntity = _owningEntity;
             satiationAmount = _satiationAmount;
         }
 
@@ -184,14 +175,12 @@ namespace InteractionDemo
         }
     }
 
-    public class Drinkable : IComponent
+    public class Drinkable : Component
     {
-        private Entity owningEntity;
-        public Drinkable(Entity _owningEntity)
+        public Drinkable(Entity _owningEntity) : base(_owningEntity)
         {
             if (!_owningEntity.ContainsComponent<Name>())
                 throw new Exception("Cannot Be drinkable if it doesn't have a name");
-            owningEntity = _owningEntity;
         }
 
         public string GetResponse()
