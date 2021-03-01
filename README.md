@@ -18,9 +18,15 @@ This is not a proper implementation of ECS but My primary focus was simplicity a
 # Example:
 Let's consider a scenario where we have a Player and a Burger. Both are Entities that have components that allow them to interact
 
-Screen Shot 2021-03-01 at 3.49.07 pm![image](https://user-images.githubusercontent.com/42259073/109453407-188d3800-7aa6-11eb-87c6-7a4e0ca4419f.png)
+[image](https://user-images.githubusercontent.com/42259073/109453407-188d3800-7aa6-11eb-87c6-7a4e0ca4419f.png)
 
-Taking that diagram into account, creating the Player entity would look as follows: (Creating the burger is similar)
+Taking that diagram into account, creating the component factory is simple (it can also take individual components but we will just use the executing assembly for now)
+
+```cs
+  new ComponentFactory(Assembly.GetExecutingAssembly());
+```
+
+now having the factory, creating the Player entity would look as follows: (Creating the burger is similar)
 ```cs
   public class Player : Entity
     {
