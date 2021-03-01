@@ -11,8 +11,8 @@ This is not a proper implementation of ECS but My primary focus was simplicity a
 ### 2. Entity
   The Entity class is the base class for entities within an application. It contains the logic for storing, retrieving and utilising IComponents. The constructor Injects a/the ComponentFactory and uses it to create new internal components. Using it's method, you can query the Entity for a particular component, to either Add, Remove or Retrieve the component
   
-### 3. IComponent
-  This is the primary interface for components to implement within an application. It allows a class to be used within the ECS system as a Component and added to Entities. 
+### 3. Component
+  This is the primary class for components to extend within an application. It allows a class to be used within the ECS system as a Component and added to Entities. There is also an Interface that should be used when the component doesn't need a reference to the parent Entity
   
   
 # Example:
@@ -45,13 +45,10 @@ now having the factory, creating the Player entity would look as follows: (Creat
 Creating the Eats Component would look as follows
 Note that in the future it is likely that the base component interface will take the owningEntity as a parameter so this private parameter will be abstracted.
 ```cs
-public class Eats : IComponent
+public class Eats : Component
     {
-        private Entity owningEntity;
-
-        public Eats(Entity _owningEntity)
+        public Eats(Entity _owningEntity) : base(_owningEntity)
         {
-            owningEntity = _owningEntity;
         }
 
         public string Eat(Entity toConsume)
