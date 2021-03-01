@@ -60,7 +60,7 @@ namespace EntityComponentSystemClassLibrary.ECS
         {
             return (IComponent) Activator.CreateInstance(
                 CreateableComponents.Find(local => local.Name == componentType.Name),
-                parameters);
+                parameters); //Doesn't support default parameters in constructors
         }
     }
 }
