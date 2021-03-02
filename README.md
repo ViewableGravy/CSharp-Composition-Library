@@ -43,7 +43,6 @@ now having the factory, creating the Player entity would look as follows: (Creat
 ```
 
 Creating the Eats Component would look as follows
-Note that in the future it is likely that the base component interface will take the owningEntity as a parameter so this private parameter will be abstracted.
 ```cs
 public class Eats : Component
     {
@@ -67,7 +66,9 @@ This is a simple example that perhaps doesn't fully benefit from this library du
 
 # ToDo
   Add constructor parameter for IComponent that stores a reference for it's parent (This is always going to be useful and is worth the slight overhead for the times when it is not needed)
+  
   Handle default parameters from constructors for IComponents in the Factory (It currently fails epicly if you try to leave the default parameter blank (which becomes null and breaks))
+  
   Work on Event handlers
   
   Note: Having a component that allows the interaction between the entity and another component has seemed fruitful, look into this further
