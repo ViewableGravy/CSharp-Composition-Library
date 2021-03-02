@@ -65,8 +65,6 @@ Then your code for a player eating a burger can look as follows
 This is a simple example that perhaps doesn't fully benefit from this library due to the initial overhead, but as your program expands, being able to add, Remove and interact with components can simplify your code so that you are not limited by the mechanisms of inheritance.
 
 # ToDo
-  Add constructor parameter for IComponent that stores a reference for it's parent (This is always going to be useful and is worth the slight overhead for the times when it is not needed)
-  
   Handle default parameters from constructors for IComponents in the Factory (It currently fails epicly if you try to leave the default parameter blank (which becomes null and breaks))
   
   Work on Event handlers
