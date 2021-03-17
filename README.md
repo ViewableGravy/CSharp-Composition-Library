@@ -1,7 +1,7 @@
 # C# Composition Library
 A Simple Library that allows the use of composition over inheritance in c#. The library focuses heavily on retrieving components from an entity using Generics but also keeping the code simple, clean and consistent
 
-  If you wish to read further into the full functionality of this library, you can find it [here]("https://github.com/ViewableGravy/CSharp-Composition-Library/wiki")
+  If you wish to read further into the full functionality of this library, you can find it [here](https://github.com/ViewableGravy/CSharp-Composition-Library/wiki)
 
 # Primary Concepts
 ### 1. ComponentFactory: 
