@@ -58,10 +58,21 @@ namespace CompositionLibrary
         {
             if (!componentFactory.ComponentExists(componentType))
                 throw new ArgumentOutOfRangeException($"Component {componentType.Name} does not exist in Factory");
-            if (ContainsComponent(componentType))
-                throw new ArgumentException($"component {componentType.Name} exists in Entity {GetType().Name}");
 
-            Components.Add(componentFactory.GetNewComponent(componentType, parameters));
+            var component = componentFactory.GetNewComponent(componentType, parameters);
+            if(!ContainsComponent(componentType))
+                Components.Add(component);
+
+            if (typeof(RelationalComponent).IsAssignableFrom(componentType))
+            {
+                ((RelationalComponent)component)
+                    .GetDependencies()
+                    .ForEach(dependencyParameters =>
+                    {
+                        if(!ContainsComponent(dependencyParameters.IComponentType))
+                            AddComponent(dependencyParameters.IComponentType, dependencyParameters.parameters);
+                    });
+            }
         }
 
         private bool ContainsComponent(Type componentType)

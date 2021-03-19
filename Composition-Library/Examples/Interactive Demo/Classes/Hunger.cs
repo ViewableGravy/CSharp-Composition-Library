@@ -33,7 +33,7 @@ namespace Examples.Interactive_Demo
             hungerLevel += amount;
             if (hungerLevel > 10)
                 hungerLevel = 10;
-            return $"player {owningEntity.GetComponent<Name>().GetName}'s Hunger level increased" +
+            return $"player {OwningEntity.GetComponent<Name>().GetName}'s Hunger level increased" +
                 Environment.NewLine + GetSatiationResponse();
         }
 
@@ -45,7 +45,7 @@ namespace Examples.Interactive_Demo
             hungerLevel -= amount;
             if (hungerLevel < 0)
                 HungerLevel = 0;
-            return $"Player {owningEntity.GetComponent<Name>().GetName}'s Hunger level decreased" +
+            return $"Player {OwningEntity.GetComponent<Name>().GetName}'s Hunger level decreased" +
                 Environment.NewLine + GetSatiationResponse();
         }
     }

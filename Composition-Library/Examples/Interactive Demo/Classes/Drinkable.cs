@@ -17,7 +17,7 @@ namespace Examples.Interactive_Demo
 
         public string GetResponse()
         {
-            return $"You take a drink from the {owningEntity.GetComponent<Name>().GetName} and feel refreshed";
+            return $"You take a drink from the {OwningEntity.GetComponent<Name>().GetName} and feel refreshed";
         }
     }
 }
