@@ -9,4 +9,8 @@
     <ProjectReference Include="..\CompositionLibrary\CompositionLibrary.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ReferenceComponents\" />
+    <Folder Include="ReferenceComponents\Classes\" />
+  </ItemGroup>
 </Project>

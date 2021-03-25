@@ -6,9 +6,9 @@ using System.Reflection;
 
 namespace Examples
 {
-    class BasicExample
+    static class BasicExample
     {
-        private static void Example()
+        public  static void BasicExampleExample()
         {
             var componentFactory = new ComponentFactory(Assembly.GetExecutingAssembly());
 

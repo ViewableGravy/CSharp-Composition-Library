@@ -14,16 +14,16 @@ namespace Examples.Interactive_Demo
         public string Eat(Entity toConsume)
         {
             var beingConsumedName = toConsume.GetComponent<Name>().GetName;
-            var owningEntityName = owningEntity.GetComponent<Name>().GetName;
+            var owningEntityName = OwningEntity.GetComponent<Name>().GetName;
 
             if (!toConsume.ContainsComponent<Edible>())
                 return $"player {owningEntityName} tries to eat {beingConsumedName} but you can't eat that!";
 
-            if (!owningEntity.ContainsComponent<Hunger>())
+            if (!OwningEntity.ContainsComponent<Hunger>())
                 return $"player {owningEntityName} takes a massive bite from the {beingConsumedName}";
 
             var edible = toConsume.GetComponent<Edible>().SatiationAmount();
-            var response = owningEntity
+            var response = OwningEntity
                 .GetComponent<Hunger>()
                 .IncreaseSatiation(edible);
             if (response.Contains("max"))

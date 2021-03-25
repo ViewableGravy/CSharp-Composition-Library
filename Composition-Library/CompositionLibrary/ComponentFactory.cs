@@ -43,17 +43,17 @@ namespace CompositionLibrary
             CreateableComponents.AddRange(iComponents);
         }
 
-        public bool ComponentExists(Type componentType)
+        internal bool ComponentExists(Type componentType)
         {
             return CreateableComponents.Any(local => local.Name == componentType.Name);
         }
 
-        public IEnumerable<Type> GetAvailableComponents()
+        internal IEnumerable<Type> GetAvailableComponents()
         {
             return (IEnumerable<Type>)CreateableComponents.ToArray().Clone();
         }
 
-        public IComponent GetNewComponent(Type componentType, params object[] parameters)
+        internal IComponent GetNewComponent(Type componentType, params object[] parameters)
         {
             return (IComponent)Activator.CreateInstance(
                 CreateableComponents.Find(local => local.Name == componentType.Name),

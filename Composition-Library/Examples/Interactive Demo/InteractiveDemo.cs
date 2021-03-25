@@ -5,9 +5,9 @@ using Examples.Interactive_Demo;
 
 namespace Examples
 {
-    public class InteractiveDemo
+    public static class InteractiveDemo
     {
-        static void Main(string[] args)
+        public static void InteractiveDemoExample()
         {
             var componentFactory = new ComponentFactory(Assembly.GetExecutingAssembly());
 
