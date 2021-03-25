@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 
 namespace CompositionLibrary
 {
@@ -58,21 +59,23 @@ namespace CompositionLibrary
         {
             if (!componentFactory.ComponentExists(componentType))
                 throw new ArgumentOutOfRangeException($"Component {componentType.Name} does not exist in Factory");
+            
+            if (!Components.Any(component => component.GetType() == componentType))
+                Components.Add(componentFactory.GetNewComponent(componentType, parameters));
 
-            var component = componentFactory.GetNewComponent(componentType, parameters);
-            if(!ContainsComponent(componentType))
-                Components.Add(component);
+            if (!typeof(RelationalComponent).IsAssignableFrom(componentType))
+                return;
 
-            if (typeof(RelationalComponent).IsAssignableFrom(componentType))
-            {
-                ((RelationalComponent)component)
-                    .GetDependencies()
-                    .ForEach(dependencyParameters =>
-                    {
-                        if(!ContainsComponent(dependencyParameters.IComponentType))
-                            AddComponent(dependencyParameters.IComponentType, dependencyParameters.parameters);
-                    });
-            }
+            if (componentType.GetCustomAttribute<ManuallyAddDependencies>() != null)
+                return;
+
+            ((RelationalComponent)GetComponent(componentType))
+                .GetDependencies()
+                .ForEach(dependencyParameters =>
+                {
+                    if(!ContainsComponent(dependencyParameters.IComponentType))
+                        AddComponent(dependencyParameters.IComponentType, dependencyParameters.parameters);
+                });
         }
 
         private bool ContainsComponent(Type componentType)

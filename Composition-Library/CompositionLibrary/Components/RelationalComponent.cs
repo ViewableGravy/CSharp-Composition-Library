@@ -9,17 +9,17 @@ namespace CompositionLibrary
     {
         private List<ComponentParameters<IComponent>> dependencies = new List<ComponentParameters<IComponent>>();
 
-        public RelationalComponent(Entity _owningEntity) : base(_owningEntity)
+        protected RelationalComponent(Entity _owningEntity) : base(_owningEntity)
         {
 
         }
 
-        public List<ComponentParameters<IComponent>> GetDependencies()
+        internal List<ComponentParameters<IComponent>> GetDependencies()
         {
             return dependencies;
         }
 
-        public void AddDependencies(ComponentParameterList<IComponent> components)
+        protected void AddDependencies(ComponentParameterList<IComponent> components)
         {
             foreach (ComponentParameters<IComponent> componentPair in components)
             {
@@ -27,7 +27,7 @@ namespace CompositionLibrary
             }
         }
 
-        public void AddDependency<T>(params object[] parameters)
+        protected void AddDependency<T>(params object[] parameters)
             where T : IComponent
         {
             AddDependency(typeof(T), parameters);

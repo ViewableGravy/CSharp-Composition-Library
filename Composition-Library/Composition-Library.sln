@@ -7,10 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompositionLibrary", "Compo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Examples", "Examples\Examples.csproj", "{AD8234A0-BCC9-4B37-9F27-3D607C92AC1F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Testing", "Testing\Testing.csproj", "{9D1DA052-0C37-432F-833A-13304732D3A7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenchMark", "BenchMark\BenchMark.csproj", "{C91A8B2D-7F05-4AE6-934C-B709A28CDDA9}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,14 +21,6 @@ Global
 		{AD8234A0-BCC9-4B37-9F27-3D607C92AC1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD8234A0-BCC9-4B37-9F27-3D607C92AC1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD8234A0-BCC9-4B37-9F27-3D607C92AC1F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9D1DA052-0C37-432F-833A-13304732D3A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9D1DA052-0C37-432F-833A-13304732D3A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9D1DA052-0C37-432F-833A-13304732D3A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9D1DA052-0C37-432F-833A-13304732D3A7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C91A8B2D-7F05-4AE6-934C-B709A28CDDA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C91A8B2D-7F05-4AE6-934C-B709A28CDDA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C91A8B2D-7F05-4AE6-934C-B709A28CDDA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C91A8B2D-7F05-4AE6-934C-B709A28CDDA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
