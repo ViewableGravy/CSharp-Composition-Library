@@ -7,8 +7,11 @@ namespace Examples.ReferenceComponents.Classes
     {
         public TempComponent3(Entity containingEntity) : base(containingEntity)
         {
-            AddDependency<TempComponent>(containingEntity);
-            AddDependency<TempComponent2>(containingEntity);
+            AddDependencies(new ComponentParameterList<IComponent>
+            {
+                new ComponentParameters<TempComponent>(containingEntity),
+                new ComponentParameters<TempComponent2>(containingEntity)
+            });
         }
     }
 }

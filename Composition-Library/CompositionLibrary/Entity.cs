@@ -63,6 +63,9 @@ namespace CompositionLibrary
             if (!Components.Any(component => component.GetType() == componentType))
                 Components.Add(componentFactory.GetNewComponent(componentType, parameters));
 
+            if (GetType().GetCustomAttribute<ManuallyAddDependencies>() != null)
+                return;
+
             if (!typeof(RelationalComponent).IsAssignableFrom(componentType))
                 return;
 
