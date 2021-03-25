@@ -4,13 +4,13 @@ A Simple Library that allows the use of composition over inheritance in c#. The 
   If you wish to read further into the full functionality of this library, you can find it [here](https://github.com/ViewableGravy/CSharp-Composition-Library/wiki)
 
 # Primary Concepts
-### 1. ComponentFactory: 
+### 1. [ComponentFactory](https://github.com/ViewableGravy/CSharp-Composition-Library/wiki/ComponentFactory) 
   A Factory for creating new Components. It can either take a list of IComponents or an Assembly. Atleast one of these should be created in order to add IComponents to an Entity
   
 ### 2. [Entity](https://github.com/ViewableGravy/CSharp-Composition-Library/wiki/Entity)
   The Entity class is the base class for entities within an application. It contains the logic for storing, retrieving and utilising IComponents. The constructor Injects a/the ComponentFactory and uses it to create new internal components. Using it's method, you can query the Entity for a particular component, to either Add, Remove or Retrieve the component
   
-### 3. Component
+### 3. [Component](https://github.com/ViewableGravy/CSharp-Composition-Library/wiki/Entity)
   This is the primary class for components to extend within an application. It allows a class to be used within the ECS system as a Component and added to Entities. There is also an Interface that should be used when the component doesn't need a reference to the parent Entity
   
   
